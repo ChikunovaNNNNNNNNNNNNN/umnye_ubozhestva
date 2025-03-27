@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('qwq')
+bot = telebot.TeleBot('7654642510:AAEU9dj-4OT4CgIlTbPrhp6aahxRvZygtXc')
 
 name = ''
 surname = ''
@@ -45,9 +45,10 @@ def get_age(message):
                                        callback_data='y')
     keyboard.add(key_o)
 
-    key_ys = types.InlineKeyboardButton(text='Успокаивающая музыка ',
+    key_ys = types.InlineKeyboardButton(text='Успокаивающая музыка',
                                         callback_data='u')
     keyboard.add(key_ys)
+
     question = 'Выберите тему, которая вас интересует'
     bot.send_message(message.from_user.id, text=question, reply_markup=keyboard)
 
@@ -56,6 +57,15 @@ def get_age(message):
 def callback_worker(call):
     if call.data == "q":
         bot.send_message(call.message.chat.id, '1')
+        con = sqlite3.connect('films_db.sqlite')
+        cur = con.cursor()
+        qwq = """
+        SELECT f.teor1 FROM oge AS f WHERE f.id = 'Русский язык'
+        """
+        res = cur.execute(qwq).fetchall()
+        res = [x[0] for x in res]
+        con.close()
+        print(*res, sep='\n')
 
         keyboardq = types.InlineKeyboardMarkup()
         key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='qq')
