@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot(ййй)
+bot = telebot.TeleBot('болгаркаааааааа')
 
 name = ''
 surname = ''
@@ -28,16 +28,16 @@ def get_name(message):
 
 def get_age(message):
     keyboard = types.InlineKeyboardMarkup()
-    key_yes = types.InlineKeyboardButton(text='Подготовка к физике', callback_data='q')
-    keyboard.add(key_yes)
+    key_o = types.InlineKeyboardButton(text='Подготовка к русскому',
+                                       callback_data='q')
+    keyboard.add(key_o)
     ke_yes = types.InlineKeyboardButton(text='Подготовка к информатике', callback_data='w')
     keyboard.add(ke_yes)
     key_o = types.InlineKeyboardButton(text='Подготовка к математике',
                                        callback_data='e')
     keyboard.add(key_o)
-    key_o = types.InlineKeyboardButton(text='Подготовка к русскому',
-                                       callback_data='r')
-    keyboard.add(key_o)
+    key_yes = types.InlineKeyboardButton(text='Подготовка к физике', callback_data='r')
+    keyboard.add(key_yes)
     key_o = types.InlineKeyboardButton(text='Подготовка к химии',
                                        callback_data='t')
     keyboard.add(key_o)
@@ -67,24 +67,20 @@ def callback_worker(call):
         con.close()
         print(*res, sep='\n')
 
-        keyboardq = types.InlineKeyboardMarkup()
+        keyboard = types.InlineKeyboardMarkup()
         key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='qq')
-        keyboardq.add(key_yes)
+        keyboard.add(key_yes)
 
-        con = sqlite3.connect('films_db.sqlite')
-        cur = con.cursor()
-        qwq = """ SELECT f.teor1 FROM oge AS f WHERE f.id = 'Русский язык'
-                                    """
         ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='ww')
-        keyboardq.add(ke_yes)
+        keyboard.add(ke_yes)
         key_o = types.InlineKeyboardButton(text='Задание 3',
                                            callback_data='ee')
-        keyboardq.add(key_o)
+        keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 4',
                                            callback_data='rr')
-        keyboardq.add(key_o)
+        keyboard.add(key_o)
         question = 'Выберите задание'
-        bot.send_message(call.from_user.id, text=question, reply_markup=keyboardq)
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
 
     elif call.data == "w":
         bot.send_message(call.message.chat.id, '2')
@@ -99,10 +95,13 @@ def callback_worker(call):
     elif call.data == "u":
         bot.send_message(call.message.chat.id, '7')
 
-
-def callback_work(cal):
-    if cal.data == "qq":
-        bot.send_message(call.message.chat.id, '1')
+    if call.data == "qq":
+        con = sqlite3.connect('films_db.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor1 FROM oge AS f WHERE f.id = 'Русский язык' """
+        res = cur.execute(qwq).fetchall()
+        con.close()
+        bot.send_message(call.message.chat.id, *res)
 
 
 bot.polling(none_stop=True, interval=0)
