@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('болгаркаааааааа')
+bot = telebot.TeleBot('ййййй')
 
 name = ''
 surname = ''
@@ -57,15 +57,6 @@ def get_age(message):
 def callback_worker(call):
     if call.data == "q":
         bot.send_message(call.message.chat.id, '1')
-        con = sqlite3.connect('films_db.sqlite')
-        cur = con.cursor()
-        qwq = """
-        SELECT f.teor1 FROM oge AS f WHERE f.id = 'Русский язык'
-        """
-        res = cur.execute(qwq).fetchall()
-        res = [x[0] for x in res]
-        con.close()
-        print(*res, sep='\n')
 
         keyboard = types.InlineKeyboardMarkup()
         key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='qq')
@@ -78,6 +69,10 @@ def callback_worker(call):
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 4',
                                            callback_data='rr')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='tt')
         keyboard.add(key_o)
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
@@ -102,6 +97,29 @@ def callback_worker(call):
         res = cur.execute(qwq).fetchall()
         con.close()
         bot.send_message(call.message.chat.id, *res)
+
+    if call.data == "ww":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/GzdTLnn')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/1XVdiB4')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/q4uYBxZ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/fsIfdqX')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/7BikPg2')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/lzDbeSZ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/wnerAmd')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/RXzabuW')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZiN4ZNa')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/0VunlaB')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/N01WTx0')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Y4koZIk')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/c6CR8z3')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/HDUqCz5')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/g2UCOQb')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/pjxVFOG')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/hQHMSQl')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/9bced9t')
+
+    if call.data == "tt":
+        bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
 
 
 bot.polling(none_stop=True, interval=0)
