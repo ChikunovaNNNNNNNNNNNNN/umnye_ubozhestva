@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('да')
+bot = telebot.TeleBot('7654642510:AAEU9dj-4OT4CgIlTbPrhp6aahxRvZygtXc')
 
 name = ''
 surname = ''
@@ -120,6 +120,89 @@ def callback_worker(call):
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 4',
                                            callback_data='r6')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 5',
+                                           callback_data='t1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 6',
+                                           callback_data='y1')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 7',
+                                           callback_data='u1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 8',
+                                           callback_data='i1')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 9',
+                                           callback_data='p1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 10',
+                                           callback_data='a1')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 11',
+                                           callback_data='s1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 12',
+                                           callback_data='d1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 13',
+                                           callback_data='f1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 14',
+                                           callback_data='g1')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 15',
+                                           callback_data='h1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 16',
+                                           callback_data='j1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 17',
+                                           callback_data='k1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 18',
+                                           callback_data='z1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 19',
+                                           callback_data='x1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 20',
+                                           callback_data='c1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 21',
+                                           callback_data='v1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 22',
+                                           callback_data='b1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 23',
+                                           callback_data='n1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 24',
+                                           callback_data='m1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 25',
+                                           callback_data='mq1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 26',
+                                           callback_data='mw1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 27',
+                                           callback_data='me1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 28',
+                                           callback_data='mr1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 29',
+                                           callback_data='mt1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 30',
+                                           callback_data='my1')
         keyboard.add(key_o)
 
         key_o = types.InlineKeyboardButton(text='Практика',
