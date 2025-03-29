@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('ййййй')
+bot = telebot.TeleBot('извините...')
 
 name = ''
 surname = ''
@@ -59,20 +59,41 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, '1')
 
         keyboard = types.InlineKeyboardMarkup()
-        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='qq')
+        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='q1')
         keyboard.add(key_yes)
 
-        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='ww')
+        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='w1')
         keyboard.add(ke_yes)
         key_o = types.InlineKeyboardButton(text='Задание 3',
-                                           callback_data='ee')
+                                           callback_data='e1')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 4',
-                                           callback_data='rr')
+                                           callback_data='r1')
         keyboard.add(key_o)
 
         key_o = types.InlineKeyboardButton(text='Практика',
-                                           callback_data='tt')
+                                           callback_data='t1')
+        keyboard.add(key_o)
+        question = 'Выберите задание'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
+    if call.data == "y":
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='q6')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='w6')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Задание 3',
+                                           callback_data='e6')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 4',
+                                           callback_data='r6')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='t6')
         keyboard.add(key_o)
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
@@ -90,7 +111,7 @@ def callback_worker(call):
     elif call.data == "u":
         bot.send_message(call.message.chat.id, '7')
 
-    if call.data == "qq":
+    if call.data == "q1":
         con = sqlite3.connect('films_db.sqlite')
         cur = con.cursor()
         qwq = """ SELECT f.teor1 FROM oge AS f WHERE f.id = 'Русский язык' """
@@ -98,7 +119,7 @@ def callback_worker(call):
         con.close()
         bot.send_message(call.message.chat.id, *res)
 
-    if call.data == "ww":
+    if call.data == "w1":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/GzdTLnn')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/1XVdiB4')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/q4uYBxZ')
@@ -118,8 +139,41 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/hQHMSQl')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/9bced9t')
 
-    if call.data == "tt":
+    if call.data == "e1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/WV1unoH')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/d0cotb3')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/24gb8TX')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/4ADLZY6')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/KOXHyHt')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/XFPSzGH')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/hO4I6ex')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/FbYBckg')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/1JXN5uh')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/sF3oz7r')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/jcs2qs6')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/XZt2dQY')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/8vLotEz')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/3KXSpKV')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/U1OOL0d')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/BSsNi9x')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/xgTyUs5')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/PX7g7w7')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/tcZDLCL')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/8bHqo1d')
+
+    if call.data == "t1":
         bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
+
+    if call.data == "q6":
+        con = sqlite3.connect('films_db.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor3 FROM oge AS f WHERE f.id = 'Русский язык' """
+        res = cur.execute(qwq).fetchall()
+        con.close()
+        bot.send_message(call.message.chat.id, *res)
+
+    if call.data == "t6":
+        bot.send_message(call.message.chat.id, 'https://geo-oge.sdamgia.ru/')
 
 
 bot.polling(none_stop=True, interval=0)
