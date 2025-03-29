@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('извините...')
+bot = telebot.TeleBot('да')
 
 name = ''
 surname = ''
@@ -71,14 +71,44 @@ def callback_worker(call):
                                            callback_data='r1')
         keyboard.add(key_o)
 
-        key_o = types.InlineKeyboardButton(text='Практика',
+        key_o = types.InlineKeyboardButton(text='Задание 5',
                                            callback_data='t1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 6',
+                                           callback_data='y1')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 7',
+                                           callback_data='u1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 8',
+                                           callback_data='i1')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 9',
+                                           callback_data='p1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 10',
+                                           callback_data='a1')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 11',
+                                           callback_data='s1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 12',
+                                           callback_data='d1')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 13',
+                                           callback_data='f1')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='g1')
         keyboard.add(key_o)
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
 
     if call.data == "y":
-
         keyboard = types.InlineKeyboardMarkup()
         key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='q6')
         keyboard.add(key_yes)
@@ -97,6 +127,11 @@ def callback_worker(call):
         keyboard.add(key_o)
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
+    if call.data == "u":
+        audio = open('C:/Users/Andrey/Desktop/AB-.mp3', 'rb')
+        bot.send_audio(call.from_user.id, audio)
+        audio.close()
 
     elif call.data == "w":
         bot.send_message(call.message.chat.id, '2')
@@ -161,7 +196,7 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/tcZDLCL')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/8bHqo1d')
 
-    if call.data == "t1":
+    if call.data == "g1":
         bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
 
     if call.data == "q6":
