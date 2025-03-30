@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('й')
+bot = telebot.TeleBot('7456789')
 
 name = ''
 surname = ''
@@ -700,6 +700,19 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/rktXFST')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/0YKERYA')
 
+    if call.data == "s5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/JxxXEFp')
+    if call.data == "d5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/0vLNThV')
+    if call.data == "f5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/c5hz23z')
+    if call.data == "g5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/T2b3nC3')
+    if call.data == "h5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/vGXqmDz')
+    if call.data == "j5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Z5cSQbk')
+
     if call.data == "m5":
         bot.send_message(call.message.chat.id, 'https://chem-oge.sdamgia.ru/')
 
@@ -710,6 +723,15 @@ def callback_worker(call):
         res = cur.execute(qwq).fetchall()
         con.close()
         bot.send_message(call.message.chat.id, *res)
+    if call.data == "w6":
+        bot.send_message(call.message.chat.id,
+                         'Страны, граничащие с Россией: Норвегия, Финляндия, Эстония, Латвия, Литва, Польша,'
+                         ' Белоруссия, Украина, Грузия, Азербайджан, Казахстан, КНР (Китай), Монголией, КНДР (Корея),'
+                         ' Абхазия, Южная Осетия, по морю - Япония и США')
+    if call.data == "e6":
+        bot.send_message(call.message.chat.id,
+                         'Природные и антропогенные причины возникновения геоэкологических проблем; меры'
+                         ' по защите людей от стихийных природных явлений. Заповедники.')
 
     if call.data == "r6":
         con = sqlite3.connect('films_db.sqlite')
@@ -746,7 +768,39 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/LyYr8nY')
     if call.data == "j6":
         bot.send_message(call.message.chat.id, 'Анализ таблицы')
+    if call.data == "k6":
+        bot.send_message(call.message.chat.id, 'Чем восточнее, тем раньше встает солнце')
+    if call.data == "z6":
+        bot.send_message(call.message.chat.id, 'Если график температуры идет вверх, то это северное полушарие, '
+                                               'а если вниз - южное')
+    if call.data == "x6":
+        bot.send_message(call.message.chat.id, 'Смотрите административную карту. Новый год '
+                                               'начинается с востока и идет на запад')
+    if call.data == "c6":
+        bot.send_message(call.message.chat.id, 'Нужны карта мира: физическая, природных зон, политическая')
 
+    if call.data == "v6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/YgmeKpP')
+    if call.data == "b6":
+        bot.send_message(call.message.chat.id, 'Определить по графику, таблице нужно величину')
+    if call.data == "n6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZvpRLm6')
+    if call.data == "m6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/acaxAAV')
+    if call.data == "mq6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Z0CsKQJ')
+    if call.data == "mw6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/SV835gN')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/fmHwzB6')
+    if call.data == "me6":
+        bot.send_message(call.message.chat.id, 'Карты административная и экономическое районирование')
+    if call.data == "mr6":
+        bot.send_message(call.message.chat.id, 'Карты физическая и экономическое районирование')
+
+    if call.data == "mt6":
+        bot.send_message(call.message.chat.id, 'Экономическое районирование')
+    if call.data == "my6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/kbJVySr')
     if call.data == "mu6":
         bot.send_message(call.message.chat.id, 'https://geo-oge.sdamgia.ru/')
 
