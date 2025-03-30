@@ -14,6 +14,14 @@ def start(message):
     if message.text == 'Привет' or message.text == 'Йоу' or message.text == 'привет' or message.text == 'йоу':
         bot.send_message(message.from_user.id, "Здравствуй, хочешь подготовться к какому нибудь предмету?")
         bot.register_next_step_handler(message, get_name)
+    elif message.text == 'Распили меня болгаркой':
+        bot.reply_to(message, 'Мне нравится твой энтузиазм, но для этого не время')
+        bot.send_message(message.from_user.id, 'Хотя.....')
+        bot.send_message(message.from_user.id, 'ВРУМ ВРУМ ВРУМ ВРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРР')
+        bot.register_next_step_handler(message, get_name)
+    elif message.text == 'Похорони меня за плинтусом':
+        bot.reply_to(message, 'Прости, но мы его уже второй год не можем приклеить, так что иди учись')
+        bot.register_next_step_handler(message, get_name)
     else:
         bot.send_message(message.from_user.id, 'Напиши Йоу')
 
@@ -21,8 +29,24 @@ def start(message):
 def get_name(message):
     global name
     name = message.text
-    if name == 'Не' or name == 'Нет' or name == 'нет' or name == 'Да' or name == 'да':
+    if name == 'Не' or name == 'Нет' or name == 'нет':
         bot.send_message(message.from_user.id, 'Ну судьба несправедлива, готовы к страданиям во имя будущего?')
+        bot.register_next_step_handler(message, get_age)
+
+    elif name == 'Да' or name == 'да':
+        bot.send_message(message.from_user.id, 'Вы гоовы грызть гранит науки?')
+        bot.register_next_step_handler(message, get_age)
+
+    elif name == 'Распили меня болгаркой':
+        bot.reply_to(message, 'Мне нравится твой энтузиазм, но для этого не время')
+        bot.send_message(message.from_user.id, 'Хотя.....')
+        bot.send_message(message.from_user.id, 'ВРУМ ВРУМ ВРУМ ВРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРР')
+        bot.register_next_step_handler(message, get_age)
+
+    elif name == 'Похорони меня за плинтусом':
+        bot.reply_to(message, 'Прости, но мы его уже второй год не можем приклеить, так что иди учись')
+    else:
+        bot.send_message(message.from_user.id, 'Я твое бу бу бу не понимаю, катись заниматься')
         bot.register_next_step_handler(message, get_age)
 
 
@@ -107,6 +131,94 @@ def callback_worker(call):
         keyboard.add(key_o)
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
+    if call.data == "t":
+        bot.send_message(call.message.chat.id, '1')
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='q5')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='w5')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Задание 3',
+                                           callback_data='e5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 4',
+                                           callback_data='r5')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 5',
+                                           callback_data='t5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 6',
+                                           callback_data='y5')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 7',
+                                           callback_data='u5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 8',
+                                           callback_data='i5')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 9',
+                                           callback_data='p5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 10',
+                                           callback_data='a5')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 11',
+                                           callback_data='s5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 12',
+                                           callback_data='d5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 13',
+                                           callback_data='f5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 14',
+                                           callback_data='g5')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 15',
+                                           callback_data='h5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 16',
+                                           callback_data='j5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 17',
+                                           callback_data='k5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 18',
+                                           callback_data='z5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 19',
+                                           callback_data='x5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 20',
+                                           callback_data='c5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 21',
+                                           callback_data='v5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 22',
+                                           callback_data='b5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 23',
+                                           callback_data='n5')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='m5')
+        keyboard.add(key_o)
+
+        question = 'Выберите задание'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
+
+
 
     if call.data == "y":
         keyboard = types.InlineKeyboardMarkup()
@@ -216,18 +328,7 @@ def callback_worker(call):
         bot.send_audio(call.from_user.id, audio)
         audio.close()
 
-    elif call.data == "w":
-        bot.send_message(call.message.chat.id, '2')
-    elif call.data == "e":
-        bot.send_message(call.message.chat.id, '3')
-    elif call.data == "r":
-        bot.send_message(call.message.chat.id, '4')
-    elif call.data == "t":
-        bot.send_message(call.message.chat.id, '5')
-    elif call.data == "y":
-        bot.send_message(call.message.chat.id, '6')
-    elif call.data == "u":
-        bot.send_message(call.message.chat.id, '7')
+
 
     if call.data == "q1":
         con = sqlite3.connect('films_db.sqlite')
@@ -281,6 +382,24 @@ def callback_worker(call):
 
     if call.data == "g1":
         bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
+
+
+
+    if call.data == "q5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/dp0BWGC')
+
+    if call.data == "w5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/anW2MLM')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/lquihjl')
+
+
+    if call.data == "m1":
+        bot.send_message(call.message.chat.id, 'https://chem-oge.sdamgia.ru/')
+
+
+
+
+
 
     if call.data == "q6":
         con = sqlite3.connect('films_db.sqlite')
