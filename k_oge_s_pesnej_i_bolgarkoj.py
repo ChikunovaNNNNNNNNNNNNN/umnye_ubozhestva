@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('ss')
+bot = telebot.TeleBot('й')
 
 name = ''
 surname = ''
@@ -454,90 +454,90 @@ def callback_worker(call):
         keyboard.add(key_o)
 
         key_o = types.InlineKeyboardButton(text='Задание 5',
-                                           callback_data='t1')
+                                           callback_data='t6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 6',
-                                           callback_data='y1')
+                                           callback_data='y6')
         keyboard.add(key_o)
 
         key_o = types.InlineKeyboardButton(text='Задание 7',
-                                           callback_data='u1')
+                                           callback_data='u6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 8',
-                                           callback_data='i1')
+                                           callback_data='i6')
         keyboard.add(key_o)
 
         key_o = types.InlineKeyboardButton(text='Задание 9',
-                                           callback_data='p1')
+                                           callback_data='p6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 10',
-                                           callback_data='a1')
+                                           callback_data='a6')
         keyboard.add(key_o)
 
         key_o = types.InlineKeyboardButton(text='Задание 11',
-                                           callback_data='s1')
+                                           callback_data='s6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 12',
-                                           callback_data='d1')
+                                           callback_data='d6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 13',
-                                           callback_data='f1')
+                                           callback_data='f6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 14',
-                                           callback_data='g1')
+                                           callback_data='g6')
         keyboard.add(key_o)
 
         key_o = types.InlineKeyboardButton(text='Задание 15',
-                                           callback_data='h1')
+                                           callback_data='h6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 16',
-                                           callback_data='j1')
+                                           callback_data='j6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 17',
-                                           callback_data='k1')
+                                           callback_data='k6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 18',
-                                           callback_data='z1')
+                                           callback_data='z6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 19',
-                                           callback_data='x1')
+                                           callback_data='x6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 20',
-                                           callback_data='c1')
+                                           callback_data='c6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 21',
-                                           callback_data='v1')
+                                           callback_data='v6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 22',
-                                           callback_data='b1')
+                                           callback_data='b6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 23',
-                                           callback_data='n1')
+                                           callback_data='n6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 24',
-                                           callback_data='m1')
+                                           callback_data='m6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 25',
-                                           callback_data='mq1')
+                                           callback_data='mq6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 26',
-                                           callback_data='mw1')
+                                           callback_data='mw6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 27',
-                                           callback_data='me1')
+                                           callback_data='me6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 28',
-                                           callback_data='mr1')
+                                           callback_data='mr6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 29',
-                                           callback_data='mt1')
+                                           callback_data='mt6')
         keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Задание 30',
-                                           callback_data='my1')
+                                           callback_data='my6')
         keyboard.add(key_o)
 
         key_o = types.InlineKeyboardButton(text='Практика',
-                                           callback_data='t6')
+                                           callback_data='mu6')
         keyboard.add(key_o)
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
@@ -636,7 +636,7 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/tX9pKbW')
 
     if call.data == "y5":
-        bot.send_photo(call.message.chat.id, 'В 6 задании обобщение всех материалов с 1 по 5.')
+        bot.send_message(call.message.chat.id, 'В 6 задании обобщение всех материалов с 1 по 5.')
 
     if call.data == "u5":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/6YaHc5V')
@@ -652,6 +652,25 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Ge0yZtY')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/5Z1iSCA')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/eIZm0Lt')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/JwOoBnD')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/SDfEVg2')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/5xf5U0g')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/rUd2rlK')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/KcLlWvX')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/k1733VZ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Ua6O8ik')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Wrp5Ut4')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/3bmE2lH')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/fbZ4kjp')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/kC4H8Im')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/YJZbHTO')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/4DO0h5w')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/TxfSSGt')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/dLVmpvf')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/nxgrMJ5')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/wc6iVpp')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/rktXFST')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/0YKERYA')
 
     if call.data == "a5":
         bot.send_message(call.message.chat.id, 'Теория 9 и 10 задания взаимосвязана')
@@ -661,6 +680,25 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Ge0yZtY')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/5Z1iSCA')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/eIZm0Lt')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/JwOoBnD')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/SDfEVg2')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/5xf5U0g')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/rUd2rlK')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/KcLlWvX')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/k1733VZ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Ua6O8ik')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Wrp5Ut4')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/3bmE2lH')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/fbZ4kjp')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/kC4H8Im')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/YJZbHTO')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/4DO0h5w')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/TxfSSGt')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/dLVmpvf')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/nxgrMJ5')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/wc6iVpp')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/rktXFST')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/0YKERYA')
 
     if call.data == "m5":
         bot.send_message(call.message.chat.id, 'https://chem-oge.sdamgia.ru/')
@@ -668,12 +706,48 @@ def callback_worker(call):
     if call.data == "q6":
         con = sqlite3.connect('films_db.sqlite')
         cur = con.cursor()
-        qwq = """ SELECT f.teor3 FROM oge AS f WHERE f.id = 'Русский язык' """
+        qwq = """ SELECT f.teor1 FROM oge AS f WHERE f.id = 'География' """
         res = cur.execute(qwq).fetchall()
         con.close()
         bot.send_message(call.message.chat.id, *res)
 
+    if call.data == "r6":
+        con = sqlite3.connect('films_db.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor4 FROM oge AS f WHERE f.id = 'География' """
+        res = cur.execute(qwq).fetchall()
+        con.close()
+        bot.send_message(call.message.chat.id, *res)
     if call.data == "t6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZEGHn1F')
+    if call.data == "y6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/P294DIf')
+
+    if call.data == "u6":
+        bot.send_message(call.message.chat.id, 'Чем выше слои горных пород тем моложе Самый молодой выше всех-наверху,'
+                                               ' самый древний ниже всех внизу. Смотрим и обозначаем сверху вниз.')
+    if call.data == "i6":
+        bot.send_message(call.message.chat.id,
+                         'Измеряем линейкой расстояние между объектами, потом умножаем на величину'
+                         ' масштаба (например 100 м) 4 см х 100 = 400 м')
+    if call.data == "p6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/WvlzJg9')
+    if call.data == "a6":
+        bot.send_message(call.message.chat.id, 'Определить можно по высоте точек, понижению рельефа и тд ')
+    if call.data == "s6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/hO35O6T')
+    if call.data == "d6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/TDopsh6')
+    if call.data == "f6":
+        bot.send_message(call.message.chat.id, 'Знание карты местности')
+    if call.data == "g6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/5gcN57Q')
+    if call.data == "h6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/LyYr8nY')
+    if call.data == "j6":
+        bot.send_message(call.message.chat.id, 'Анализ таблицы')
+
+    if call.data == "mu6":
         bot.send_message(call.message.chat.id, 'https://geo-oge.sdamgia.ru/')
 
 
