@@ -1,0 +1,559 @@
+import telebot
+from telebot import types
+import sqlite3
+
+bot = telebot.TeleBot('7654642510:AAEU9dj-4OT4CgIlTbPrhp6aahxRvZygtXc')
+
+name = ''
+surname = ''
+age = 0
+
+
+@bot.message_handler(content_types=['text'])
+def start(message):
+    if message.text == 'Привет' or message.text == 'Йоу' or message.text == 'привет' or message.text == 'йоу':
+        bot.send_message(message.from_user.id, "Здравствуй, хочешь подготовться к какому нибудь предмету?")
+        bot.register_next_step_handler(message, get_name)
+    else:
+        bot.send_message(message.from_user.id, 'Напиши Йоу')
+
+
+def get_name(message):
+    global name
+    name = message.text
+    if name == 'Не' or name == 'Нет' or name == 'нет' or name == 'Да' or name == 'да':
+        bot.send_message(message.from_user.id, 'Ну судьба несправедлива, готовы к страданиям во имя будущего?')
+        bot.register_next_step_handler(message, get_age)
+
+
+def get_age(message):
+    keyboard = types.InlineKeyboardMarkup()
+    key_o = types.InlineKeyboardButton(text='Подготовка к русскому',
+                                       callback_data='russ')
+    keyboard.add(key_o)
+    ke_yes = types.InlineKeyboardButton(text='Подготовка к информатике', callback_data='inf')
+    keyboard.add(ke_yes)
+    key_o = types.InlineKeyboardButton(text='Подготовка к математике',
+                                       callback_data='mat')
+    keyboard.add(key_o)
+    key_yes = types.InlineKeyboardButton(text='Подготовка к физике', callback_data='fis')
+    keyboard.add(key_yes)
+    key_o = types.InlineKeyboardButton(text='Подготовка к химии',
+                                       callback_data='chim')
+    keyboard.add(key_o)
+    key_o = types.InlineKeyboardButton(text='Подготовка к географии',
+                                       callback_data='geo')
+    keyboard.add(key_o)
+
+    key_ys = types.InlineKeyboardButton(text='Успокаивающая музыка',
+                                        callback_data='mus')
+    keyboard.add(key_ys)
+
+    question = 'Выберите тему, которая вас интересует'
+    bot.send_message(message.from_user.id, text=question, reply_markup=keyboard)
+
+
+@bot.callback_query_handler(func=lambda call: True)
+def callback_worker(call):
+    if call.data == "russ":
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='russ1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='russ2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Задание 3',
+                                           callback_data='russ3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 4',
+                                           callback_data='russ4')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 5',
+                                           callback_data='russ5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 6',
+                                           callback_data='russ6')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 7',
+                                           callback_data='russ7')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 8',
+                                           callback_data='russ8')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 9',
+                                           callback_data='russ9')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 10',
+                                           callback_data='russ10')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 11',
+                                           callback_data='russ11')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 12',
+                                           callback_data='russ12')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 13',
+                                           callback_data='russ13')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='russ_practics')
+        keyboard.add(key_o)
+        question = 'Выберите задание'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
+    if call.data == "inf":
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='inf1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='inf2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Задание 3',
+                                           callback_data='inf3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 4',
+                                           callback_data='inf4')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 5',
+                                           callback_data='inf5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 6',
+                                           callback_data='inf6')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 7',
+                                           callback_data='inf7')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 8',
+                                           callback_data='inf8')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 9',
+                                           callback_data='inf9')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 10',
+                                           callback_data='inf10')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 11',
+                                           callback_data='inf11')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 12',
+                                           callback_data='inf12')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 13',
+                                           callback_data='inf13')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 14',
+                                           callback_data='inf14')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 15',
+                                           callback_data='inf15')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 16',
+                                           callback_data='inf16')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='inf_practics')
+        keyboard.add(key_o)
+        question = 'Выберите задание'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
+    if call.data == "mat":
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='mat1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='mat2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Задание 3',
+                                           callback_data='mat3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 4',
+                                           callback_data='mat4')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 5',
+                                           callback_data='mat5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 6',
+                                           callback_data='mat6')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 7',
+                                           callback_data='mat7')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 8',
+                                           callback_data='mat8')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 9',
+                                           callback_data='mat9')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 10',
+                                           callback_data='mat10')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 11',
+                                           callback_data='mat11')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 12',
+                                           callback_data='mat12')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 13',
+                                           callback_data='mat13')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 14',
+                                           callback_data='mat14')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 15',
+                                           callback_data='mat15')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 16',
+                                           callback_data='mat16')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 17',
+                                           callback_data='mat17')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 18',
+                                           callback_data='mat18')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 19',
+                                           callback_data='mat19')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 20',
+                                           callback_data='mat20')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 21',
+                                           callback_data='mat21')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 22',
+                                           callback_data='mat22')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 23',
+                                           callback_data='mat23')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 24',
+                                           callback_data='mat24')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 25',
+                                           callback_data='mat25')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='mat_practics')
+        keyboard.add(key_o)
+        question = 'Выберите задание'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
+    if call.data == "mat":
+
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='mat1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='mat2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Задание 3',
+                                           callback_data='mat3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 4',
+                                           callback_data='mat4')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 5',
+                                           callback_data='mat5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 6',
+                                           callback_data='mat6')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 7',
+                                           callback_data='mat7')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 8',
+                                           callback_data='mat8')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 9',
+                                           callback_data='mat9')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 10',
+                                           callback_data='mat10')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 11',
+                                           callback_data='mat11')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 12',
+                                           callback_data='mat12')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 13',
+                                           callback_data='mat13')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 14',
+                                           callback_data='mat14')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 15',
+                                           callback_data='mat15')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 16',
+                                           callback_data='mat16')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 17',
+                                           callback_data='mat17')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 18',
+                                           callback_data='mat18')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 19',
+                                           callback_data='mat19')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 20',
+                                           callback_data='mat20')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 21',
+                                           callback_data='mat21')
+        keyboard.add(key_o)
+
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 22',
+                                           callback_data='mat22')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='geo_practics')
+        keyboard.add(key_o)
+        question = 'Выберите задание'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
+    if call.data == "geo":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='geo1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='geo2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Задание 3',
+                                           callback_data='geo3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 4',
+                                           callback_data='geo4')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 5',
+                                           callback_data='geo5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 6',
+                                           callback_data='geo6')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 7',
+                                           callback_data='geo7')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 8',
+                                           callback_data='geo8')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 9',
+                                           callback_data='geo9')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 10',
+                                           callback_data='geo10')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 11',
+                                           callback_data='geo11')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 12',
+                                           callback_data='geo12')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 13',
+                                           callback_data='geo13')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 14',
+                                           callback_data='geo14')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Задание 15',
+                                           callback_data='geo15')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 16',
+                                           callback_data='geo16')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 17',
+                                           callback_data='geo17')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 18',
+                                           callback_data='geo18')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 19',
+                                           callback_data='geo19')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 20',
+                                           callback_data='geo20')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 21',
+                                           callback_data='geo21')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 22',
+                                           callback_data='geo22')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 23',
+                                           callback_data='geo23')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 24',
+                                           callback_data='geo24')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 25',
+                                           callback_data='geo25')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 26',
+                                           callback_data='geo26')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 27',
+                                           callback_data='geo27')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 28',
+                                           callback_data='geo28')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 29',
+                                           callback_data='geo29')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Задание 30',
+                                           callback_data='geo30')
+        keyboard.add(key_o)
+
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='geo_practics')
+        keyboard.add(key_o)
+        question = 'Выберите задание'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
+    if call.data == "mus":
+        audio = open('AB-.mp3', 'rb')
+        bot.send_audio(call.from_user.id, audio)
+        audio.close()
+
+    if call.data == "russ":
+        con = sqlite3.connect('films_db.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor1 FROM oge AS f WHERE f.id = 'Русский язык' """
+        res = cur.execute(qwq).fetchall()
+        con.close()
+        bot.send_message(call.message.chat.id, *res)
+
+    if call.data == "russ2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/GzdTLnn')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/1XVdiB4')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/q4uYBxZ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/fsIfdqX')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/7BikPg2')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/lzDbeSZ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/wnerAmd')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/RXzabuW')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZiN4ZNa')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/0VunlaB')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/N01WTx0')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Y4koZIk')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/c6CR8z3')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/HDUqCz5')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/g2UCOQb')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/pjxVFOG')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/hQHMSQl')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/9bced9t')
+
+    if call.data == "russ3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/WV1unoH')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/d0cotb3')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/24gb8TX')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/4ADLZY6')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/KOXHyHt')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/XFPSzGH')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/hO4I6ex')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/FbYBckg')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/1JXN5uh')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/sF3oz7r')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/jcs2qs6')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/XZt2dQY')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/8vLotEz')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/3KXSpKV')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/U1OOL0d')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/BSsNi9x')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/xgTyUs5')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/PX7g7w7')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/tcZDLCL')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/8bHqo1d')
+
+    if call.data == "russ_practics":
+        bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
+
+    if call.data == "geo1":
+        con = sqlite3.connect('OGE.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor3 FROM oge AS f WHERE f.id = 'Русский язык' """
+        res = cur.execute(qwq).fetchall()
+        con.close()
+        bot.send_message(call.message.chat.id, *res)
+
+    if call.data == "geo5":
+        bot.send_message(call.message.chat.id, 'https://geo-oge.sdamgia.ru/')
+
+
+bot.polling(none_stop=True, interval=0)
