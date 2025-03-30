@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('7654642510:AAEU9dj-4OT4CgIlTbPrhp6aahxRvZygtXc')
+bot = telebot.TeleBot('ЙЦЙ')
 
 name = ''
 surname = ''
@@ -766,7 +766,22 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/vGXqmDz')
     if call.data == "j5":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Z5cSQbk')
+    if call.data == "k5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/LRlBS8f')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/FNWHzoW')
+    if call.data == "z5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/PgxuLpL')
+    if call.data == "x5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/PgxuLpL')
+    if call.data == "c5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/1DclIuK')
 
+    if call.data == "v5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/vt2Vbxq')
+    if call.data == "b5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/XQDzt0j')
+    if call.data == "n5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/XQDzt0j')
     if call.data == "m5":
         bot.send_message(call.message.chat.id, 'https://chem-oge.sdamgia.ru/')
 
