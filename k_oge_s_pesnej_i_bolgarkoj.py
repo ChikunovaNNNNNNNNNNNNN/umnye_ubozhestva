@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('7654642510:AAEU9dj-4OT4CgIlTbPrhp6aahxRvZygtXc')
+bot = telebot.TeleBot('йййй')
 
 name = ''
 surname = ''
@@ -217,9 +217,6 @@ def callback_worker(call):
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
 
-
-
-
     if call.data == "y":
         keyboard = types.InlineKeyboardMarkup()
         key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='q6')
@@ -328,8 +325,6 @@ def callback_worker(call):
         bot.send_audio(call.from_user.id, audio)
         audio.close()
 
-
-
     if call.data == "q1":
         con = sqlite3.connect('films_db.sqlite')
         cur = con.cursor()
@@ -383,8 +378,6 @@ def callback_worker(call):
     if call.data == "g1":
         bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
 
-
-
     if call.data == "q5":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/dp0BWGC')
 
@@ -392,14 +385,16 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/anW2MLM')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/lquihjl')
 
+    if call.data == "e5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZhA0wok')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/dxlvKu4')
 
-    if call.data == "m1":
+    if call.data == "r5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Fo7ydKH')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/6GrV59M')
+
+    if call.data == "m5":
         bot.send_message(call.message.chat.id, 'https://chem-oge.sdamgia.ru/')
-
-
-
-
-
 
     if call.data == "q6":
         con = sqlite3.connect('films_db.sqlite')
