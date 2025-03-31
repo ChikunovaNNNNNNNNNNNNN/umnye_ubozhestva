@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-bot = telebot.TeleBot('ЙЦЙ')
+bot = telebot.TeleBot('7654642510:AAEU9dj-4OT4CgIlTbPrhp6aahxRvZygtXc')
 
 name = ''
 surname = ''
@@ -649,9 +649,68 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ht2LayY')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/QFxxyr1')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/whraVrM')
-        '6'
+    if call.data == "u1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ldc1gfm')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/mxBAjzL')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/4UtnPqE')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/HdExlP5')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/xpoTb9w')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/DwlRl13')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/l3uHhV9')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/SwQbrxZ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/rJw3Q5h')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/QHbAew5')
 
-    if call.data == "g1":
+    if call.data == "i1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/fGfeXKM')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/JfMWG3Y')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/w5LPPex')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/WX2EQ2n')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/9wVqizj')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/jqOHQeV')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/wKYkr5G')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/wbZcDzu')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Kni6iec')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/JoGB7zM')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/y5A37VS')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ahEajVW')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/xg8ujlK')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/0SajnIz')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/HCy1PRy')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/IHL12ev')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/km60f4q')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/NKOamco')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/wrettus')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZFYQcSn')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/HUgREbK')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/4US5CPf')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/2agKqmM')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/y5SmpKm')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Xd61Pwh')
+    if call.data == "p1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/HYxGtpp')
+    if call.data == "a1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/JUqkDkp')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Vf4xdgQ')
+    if call.data == "s1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/bVHZmkn')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/5EKUiTF')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/AJiBqO7')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/sdkhUHX')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ibu0g8E')
+
+    if call.data == "d1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/0P6vPCZ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/5pRWFts')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/S0Z9udw')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/TDgImZ5')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/VVAqIQ1')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZBXfNBn')
+    if call.data == "f1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/omyxfd8')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/kdNnr74')
+
+    if call.data == "h1":
         bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
 
     if call.data == "q2":
