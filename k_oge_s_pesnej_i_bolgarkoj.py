@@ -73,6 +73,10 @@ def get_age(message):
                                         callback_data='u')
     keyboard.add(key_ys)
 
+    kqqq_ys = types.InlineKeyboardButton(text='Даты проведения экзаменов',
+                                         callback_data='dat')
+    keyboard.add(kqqq_ys)
+
     question = 'Выберите тему, которая вас интересует'
     bot.send_message(message.from_user.id, text=question, reply_markup=keyboard)
 
@@ -867,6 +871,7 @@ def callback_worker(call):
         qwq = """ SELECT f.teor4 FROM oge AS f WHERE f.id = 'География' """
         res = cur.execute(qwq).fetchall()
         con.close()
+        print(*res)
         bot.send_message(call.message.chat.id, *res)
     if call.data == "t6":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZEGHn1F')
@@ -931,6 +936,16 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/kbJVySr')
     if call.data == "mu6":
         bot.send_message(call.message.chat.id, 'https://geo-oge.sdamgia.ru/')
+    if call.data == "dat":
+        bot.send_message(call.message.chat.id,
+                         '☃21 мая (среда) — иностранные языки (английский, испанский, немецкий, французский);\n'
+                         '☃22 мая (четверг) — иностранные языки (английский, испанский, немецкий, французский);\n'
+                         '☃26 мая (понедельник) — биология, информатика, обществознание, химия;\n'
+                         '☃29 мая (четверг) — география, история, физика, химия;\n'
+                         '☃3 июня (вторник) — математика;\n'
+                         '☃6 июня (пятница) — география, информатика, обществознание;\n'
+                         '☃9 июня (понедельник) — русский язык;\n'
+                         '☃16 июня (понедельник) — биология, информатика, литература, физика.\n')
 
 
 bot.polling(none_stop=True, interval=0)
