@@ -197,89 +197,72 @@ def callback_worker(call):
 
     if call.data == "e":
         keyboard = types.InlineKeyboardMarkup()
-        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='q3')
+        key_yes = types.InlineKeyboardButton(text='Теория по алгебре', callback_data='alg')
         keyboard.add(key_yes)
 
-        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='w3')
+        ke_yes = types.InlineKeyboardButton(text='Теория по геометрии', callback_data='geom')
         keyboard.add(ke_yes)
-        key_o = types.InlineKeyboardButton(text='Задание 3',
-                                           callback_data='e3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 4',
-                                           callback_data='r3')
-        keyboard.add(key_o)
 
-        key_o = types.InlineKeyboardButton(text='Задание 5',
-                                           callback_data='t3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 6',
-                                           callback_data='y3')
-        keyboard.add(key_o)
-
-        key_o = types.InlineKeyboardButton(text='Задание 7',
-                                           callback_data='u3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 8',
-                                           callback_data='i3')
-        keyboard.add(key_o)
-
-        key_o = types.InlineKeyboardButton(text='Задание 9',
-                                           callback_data='p3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 10',
-                                           callback_data='a3')
-        keyboard.add(key_o)
-
-        key_o = types.InlineKeyboardButton(text='Задание 11',
-                                           callback_data='s3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 12',
-                                           callback_data='d3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 13',
-                                           callback_data='f3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 14',
-                                           callback_data='g3')
-        keyboard.add(key_o)
-
-        key_o = types.InlineKeyboardButton(text='Задание 15',
-                                           callback_data='h3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 16',
-                                           callback_data='j3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 17',
-                                           callback_data='k3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 18',
-                                           callback_data='z3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 19',
-                                           callback_data='x3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 20',
-                                           callback_data='c3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 21',
-                                           callback_data='v3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 22',
-                                           callback_data='b3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 23',
-                                           callback_data='n3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 24',
-                                           callback_data='m3')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 25',
-                                           callback_data='mq3')
-        keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Практика',
                                            callback_data='mw3')
         keyboard.add(key_o)
         question = 'Выберите задание'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "alg":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Формулы сокращенного умножения.', callback_data='q3')
+        keyboard.add(key_yes)
+        ke_yes = types.InlineKeyboardButton(text='Арифметический квадратный корень.', callback_data='w3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Арифметическая прогрессия.', callback_data='e3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Геометрическая прогрессия.', callback_data='r3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Классическое определение вероятности.', callback_data='t3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Текстовые задачи на среднюю скорость.', callback_data='y3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Текстовые задачи на нахождение длины поезда.', callback_data='u3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Текстовые задачи на проценты, смеси и сплавы.', callback_data='i3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Текстовые задачи на движение по воде.', callback_data='p3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Текстовые задачи на совместную работу.', callback_data='a3')
+        keyboard.add(ke_yes)
+        question = 'Выберите тему для подготовки по алгебре'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "geom":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Взаимное расположение прямых на плоскости.', callback_data='s3')
+        keyboard.add(key_yes)
+        ke_yes = types.InlineKeyboardButton(text='Треугольник.', callback_data='d3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Теорема Пифагора.', callback_data='f3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Теорема Фалеса и теорема о пропорциональных отрезках.',
+                                            callback_data='g3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Вневписанная окружность треугольника.', callback_data='h3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Параллелограмм.', callback_data='j3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Трапеция.', callback_data='k3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Свойства и признаки вписанного четырехугольника.', callback_data='z3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Свойства и признаки описанного четырехугольника.', callback_data='x3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Теорема Птолемея.', callback_data='c3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Углы, связанные с окружностью.', callback_data='v3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Метрические соотношения в окружности.', callback_data='b3')
+        keyboard.add(ke_yes)
+        ke_yes = types.InlineKeyboardButton(text='Векторы и координаты на плоскости.', callback_data='n3')
+        keyboard.add(ke_yes)
+
+        question = 'Выберите тему для подготовки по геометрии'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
 
     if call.data == "r":
@@ -723,7 +706,75 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, 'https://inf-oge.sdamgia.ru/')
 
     if call.data == "q3":
-        bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/zm6AeUW')
+    if call.data == "w3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/6yMxOQY')
+    if call.data == "e3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/fZuCSlf')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/fqCmIQl')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/eUwxnv3')
+    if call.data == "r3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/7eeBQz0')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/yFOkVjr')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/FcQCHVC')
+    if call.data == "t3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/bTQQy7g')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/yFOkVjr')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/FcQCHVC')
+        'veroyatnost'
+    if call.data == "y3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/iPfLHNd')
+    if call.data == "u3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/MtMMXxY')
+    if call.data == "i3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/YNqPxj1')
+    if call.data == "p3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/TdPAZRh')
+    if call.data == "a3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/iDg9Jy6')
+
+    if call.data == "s3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/8Uqg9pd')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/AyGO0s0')
+    if call.data == "d3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/zNuhqaQ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/vjWYbuY')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/NYUIV5N')
+    if call.data == "f3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/jHkeTal')
+    if call.data == "g3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/eVLl8zx')
+    if call.data == "h3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/gwtrliL')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/cXKwgls')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/oeilfiV')
+    if call.data == "j3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZPRiH4u')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ulpcjop')
+    if call.data == "k3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/nEj9Nks')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/EjzRxOI')
+    if call.data == "z3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/nB5WVJO')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/PUV4kN1')
+    if call.data == "x3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/GEmnoIg')
+    if call.data == "c3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/YCmiPka')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/47OURU5')
+    if call.data == "v3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/UadvDW9')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/8drmNkE')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/wGqwH02')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ACVRZ4y')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/rK5gPIP')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/LNHGNhr')
+    if call.data == "b3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/TrBO1KY')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/DM9pW8L')
+    if call.data == "n3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/O1eFk6G')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/NUQPHo7')
     if call.data == "mw3":
         bot.send_message(call.message.chat.id, 'https://math-oge.sdamgia.ru/')
 
@@ -938,14 +989,15 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, 'https://geo-oge.sdamgia.ru/')
     if call.data == "dat":
         bot.send_message(call.message.chat.id,
-                         '☃21 мая (среда) — иностранные языки (английский, испанский, немецкий, французский);\n'
-                         '☃22 мая (четверг) — иностранные языки (английский, испанский, немецкий, французский);\n'
-                         '☃26 мая (понедельник) — биология, информатика, обществознание, химия;\n'
-                         '☃29 мая (четверг) — география, история, физика, химия;\n'
-                         '☃3 июня (вторник) — математика;\n'
-                         '☃6 июня (пятница) — география, информатика, обществознание;\n'
-                         '☃9 июня (понедельник) — русский язык;\n'
-                         '☃16 июня (понедельник) — биология, информатика, литература, физика.\n')
+                         '(｡•́︿•̀｡)  21 мая (среда) — иностранные языки (английский,'
+                         ' испанский, немецкий, французский);\n'
+                         '(╥﹏╥)  22 мая (четверг) — иностранные языки (английский, испанский, немецкий, французский);\n'
+                         '(ಠ ∩ಠ)  26 мая (понедельник) — биология, информатика, обществознание, химия;\n'
+                         '(｀Д´)  29 мая (четверг) — география, история, физика, химия;\n'
+                         '⋋_⋌  3 июня (вторник) — математика;\n'
+                         '(╬ಠ益ಠ)  6 июня (пятница) — география, информатика, обществознание;\n'
+                         '(ಥ﹏ಥ)  9 июня (понедельник) — русский язык;\n'
+                         '(=ↀωↀ=)  16 июня (понедельник) — биология, информатика, литература, физика.\n')
 
 
 bot.polling(none_stop=True, interval=0)
