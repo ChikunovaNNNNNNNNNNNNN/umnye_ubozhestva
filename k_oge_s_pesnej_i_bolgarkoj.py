@@ -535,7 +535,7 @@ def callback_worker(call):
         audio.close()
 
     if call.data == "q1":
-        con = sqlite3.connect('films_db.sqlite')
+        con = sqlite3.connect('1.sqlite')
         cur = con.cursor()
         qwq = """ SELECT f.teor1 FROM oge AS f WHERE f.id = 'Русский язык' """
         res = cur.execute(qwq).fetchall()
@@ -900,11 +900,12 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, 'https://chem-oge.sdamgia.ru/')
 
     if call.data == "q6":
-        con = sqlite3.connect('films_db.sqlite')
+        con = sqlite3.connect('1.sqlite')
         cur = con.cursor()
-        qwq = """ SELECT f.teor1 FROM oge AS f WHERE f.id = 'География' """
+        qwq = """ SELECT f.teor4 FROM oge AS f WHERE f.id = 'Русский язык' """
         res = cur.execute(qwq).fetchall()
         con.close()
+        print(*res)
         bot.send_message(call.message.chat.id, *res)
     if call.data == "w6":
         bot.send_message(call.message.chat.id,
@@ -917,12 +918,12 @@ def callback_worker(call):
                          ' по защите людей от стихийных природных явлений. Заповедники.')
 
     if call.data == "r6":
-        con = sqlite3.connect('films_db.sqlite')
+        con = sqlite3.connect('1.sqlite')
         cur = con.cursor()
         qwq = """ SELECT f.teor4 FROM oge AS f WHERE f.id = 'География' """
         res = cur.execute(qwq).fetchall()
         con.close()
-        print(*res)
+        print(*res[0])
         bot.send_message(call.message.chat.id, *res)
     if call.data == "t6":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZEGHn1F')
