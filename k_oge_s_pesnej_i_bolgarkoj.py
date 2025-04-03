@@ -902,20 +902,24 @@ def callback_worker(call):
     if call.data == "q6":
         con = sqlite3.connect('1.sqlite')
         cur = con.cursor()
-        qwq = """ SELECT f.teor4 FROM oge AS f WHERE f.id = 'Русский язык' """
+        qwq = """ SELECT f.teor1 FROM oge AS f WHERE f.id = 'География' """
         res = cur.execute(qwq).fetchall()
         con.close()
-        print(*res)
         bot.send_message(call.message.chat.id, *res)
     if call.data == "w6":
-        bot.send_message(call.message.chat.id,
-                         'Страны, граничащие с Россией: Норвегия, Финляндия, Эстония, Латвия, Литва, Польша,'
-                         ' Белоруссия, Украина, Грузия, Азербайджан, Казахстан, КНР (Китай), Монголией, КНДР (Корея),'
-                         ' Абхазия, Южная Осетия, по морю - Япония и США')
+        con = sqlite3.connect('1.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor2 FROM oge AS f WHERE f.id = 'География' """
+        res = cur.execute(qwq).fetchall()
+        con.close()
+        bot.send_message(call.message.chat.id, *res)
     if call.data == "e6":
-        bot.send_message(call.message.chat.id,
-                         'Природные и антропогенные причины возникновения геоэкологических проблем; меры'
-                         ' по защите людей от стихийных природных явлений. Заповедники.')
+        con = sqlite3.connect('1.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor3 FROM oge AS f WHERE f.id = 'География' """
+        res = cur.execute(qwq).fetchall()
+        con.close()
+        bot.send_message(call.message.chat.id, *res)
 
     if call.data == "r6":
         con = sqlite3.connect('1.sqlite')
@@ -923,7 +927,6 @@ def callback_worker(call):
         qwq = """ SELECT f.teor4 FROM oge AS f WHERE f.id = 'География' """
         res = cur.execute(qwq).fetchall()
         con.close()
-        print(*res[0])
         bot.send_message(call.message.chat.id, *res)
     if call.data == "t6":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZEGHn1F')
@@ -931,16 +934,29 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/P294DIf')
 
     if call.data == "u6":
-        bot.send_message(call.message.chat.id, 'Чем выше слои горных пород тем моложе Самый молодой выше всех-наверху,'
-                                               ' самый древний ниже всех внизу. Смотрим и обозначаем сверху вниз.')
+        con = sqlite3.connect('1.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor7 FROM oge AS f WHERE f.id = 'География' """
+        res = cur.execute(qwq).fetchall()
+        con.close()
+        print(*res[0])
+        bot.send_message(call.message.chat.id, *res)
     if call.data == "i6":
-        bot.send_message(call.message.chat.id,
-                         'Измеряем линейкой расстояние между объектами, потом умножаем на величину'
-                         ' масштаба (например 100 м) 4 см х 100 = 400 м')
+        con = sqlite3.connect('1.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor8 FROM oge AS f WHERE f.id = 'География' """
+        res = cur.execute(qwq).fetchall()
+        con.close()
+        bot.send_message(call.message.chat.id, *res)
     if call.data == "p6":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/WvlzJg9')
     if call.data == "a6":
-        bot.send_message(call.message.chat.id, 'Определить можно по высоте точек, понижению рельефа и тд ')
+        con = sqlite3.connect('1.sqlite')
+        cur = con.cursor()
+        qwq = """ SELECT f.teor10 FROM oge AS f WHERE f.id = 'География' """
+        res = cur.execute(qwq).fetchall()
+        bot.send_message(call.message.chat.id, *res)
+        con.close()
     if call.data == "s6":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/hO35O6T')
     if call.data == "d6":
