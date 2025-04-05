@@ -267,78 +267,25 @@ def callback_worker(call):
 
     if call.data == "r":
         keyboard = types.InlineKeyboardMarkup()
-        key_yes = types.InlineKeyboardButton(text='Задание 1', callback_data='q4')
+        key_yes = types.InlineKeyboardButton(text='Механические явления', callback_data='q4')
         keyboard.add(key_yes)
 
-        ke_yes = types.InlineKeyboardButton(text='Задание 2', callback_data='w4')
+        ke_yes = types.InlineKeyboardButton(text='Тепловые явления', callback_data='w4')
         keyboard.add(ke_yes)
-        key_o = types.InlineKeyboardButton(text='Задание 3',
+        key_o = types.InlineKeyboardButton(text='Электромагнитные явления',
                                            callback_data='e4')
         keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 4',
+        key_o = types.InlineKeyboardButton(text='Квантовые явления. Работа с текстами физического содержания',
                                            callback_data='r4')
         keyboard.add(key_o)
 
-        key_o = types.InlineKeyboardButton(text='Задание 5',
+        key_o = types.InlineKeyboardButton(text='Экспериментальное задание. Методология науки. Приборы и технические '
+                                                'устройства. История физики',
                                            callback_data='t4')
         keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 6',
-                                           callback_data='y4')
-        keyboard.add(key_o)
 
-        key_o = types.InlineKeyboardButton(text='Задание 7',
-                                           callback_data='u4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 8',
-                                           callback_data='i4')
-        keyboard.add(key_o)
-
-        key_o = types.InlineKeyboardButton(text='Задание 9',
-                                           callback_data='p4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 10',
-                                           callback_data='a4')
-        keyboard.add(key_o)
-
-        key_o = types.InlineKeyboardButton(text='Задание 11',
-                                           callback_data='s4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 12',
-                                           callback_data='d4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 13',
-                                           callback_data='f4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 14',
-                                           callback_data='g4')
-        keyboard.add(key_o)
-
-        key_o = types.InlineKeyboardButton(text='Задание 15',
-                                           callback_data='h4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 16',
-                                           callback_data='j4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 17',
-                                           callback_data='k4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 18',
-                                           callback_data='z4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 19',
-                                           callback_data='x4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 20',
-                                           callback_data='c4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 21',
-                                           callback_data='v4')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 22',
-                                           callback_data='b4')
-        keyboard.add(key_o)
         key_o = types.InlineKeyboardButton(text='Практика',
-                                           callback_data='n4')
+                                           callback_data='u4')
         keyboard.add(key_o)
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
@@ -779,8 +726,28 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, 'https://math-oge.sdamgia.ru/')
 
     if call.data == "q4":
-        bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
-    if call.data == "n4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/zMfFuA9')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/LDkGdtP')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/WuBwcvJ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/JntwPga')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/yCyvuFA')
+    if call.data == "w4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/KAgAgHt')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/pE63T3j')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ePsf8x4')
+    if call.data == "e4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/3T0cgmP')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/wr9ZC2e')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/hyu2FLl')
+    if call.data == "r4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/xESocsa')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/Pfa6nwd')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/O9JeOFk')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/7OOfPFI')
+    if call.data == "t4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/XnNkifC')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ZBBelb1')
+    if call.data == "u4":
         bot.send_message(call.message.chat.id, 'https://phys-oge.sdamgia.ru/')
 
     if call.data == "q5":
