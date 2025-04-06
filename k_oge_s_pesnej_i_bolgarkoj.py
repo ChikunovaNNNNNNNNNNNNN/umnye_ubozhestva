@@ -1,12 +1,15 @@
 import telebot
 from telebot import types
 import sqlite3
+from random import choice
 
 bot = telebot.TeleBot('7654642510:AAEU9dj-4OT4CgIlTbPrhp6aahxRvZygtXc')
 
 name = ''
 surname = ''
 age = 0
+musics = ['AB-.mp3', 'Ophelia - The Lumineers', 'Riptide - Vance Joy', 'Stolen Dance - Milky Chance',
+          "There's Nothing Holdin' Me Back - Shawn Mendes", 'Build Our Machine (Bendy and Ink Machine)']
 
 
 @bot.message_handler(content_types=['text'])
@@ -67,6 +70,26 @@ def get_age(message):
     keyboard.add(key_o)
     key_o = types.InlineKeyboardButton(text='Подготовка к географии',
                                        callback_data='y')
+    keyboard.add(key_o)
+
+    key_o = types.InlineKeyboardButton(text='Подготовка к история',
+                                       callback_data='hist')
+    keyboard.add(key_o)
+
+    key_o = types.InlineKeyboardButton(text='Подготовка к литература',
+                                       callback_data='lit')
+    keyboard.add(key_o)
+
+    key_o = types.InlineKeyboardButton(text='Подготовка к обществознание',
+                                       callback_data='obch')
+    keyboard.add(key_o)
+
+    key_o = types.InlineKeyboardButton(text='Подготовка к биологии',
+                                       callback_data='bio')
+    keyboard.add(key_o)
+
+    key_o = types.InlineKeyboardButton(text='Подготовка к иностранным языкам',
+                                       callback_data='lang')
     keyboard.add(key_o)
 
     key_ys = types.InlineKeyboardButton(text='Успокаивающая музыка',
@@ -178,19 +201,9 @@ def callback_worker(call):
         key_o = types.InlineKeyboardButton(text='Задание 13',
                                            callback_data='f2')
         keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 14',
-                                           callback_data='g2')
-        keyboard.add(key_o)
-
-        key_o = types.InlineKeyboardButton(text='Задание 15',
-                                           callback_data='h2')
-        keyboard.add(key_o)
-        key_o = types.InlineKeyboardButton(text='Задание 16',
-                                           callback_data='j2')
-        keyboard.add(key_o)
 
         key_o = types.InlineKeyboardButton(text='Практика',
-                                           callback_data='k2')
+                                           callback_data='g2')
         keyboard.add(key_o)
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
@@ -257,6 +270,7 @@ def callback_worker(call):
         keyboard.add(ke_yes)
         ke_yes = types.InlineKeyboardButton(text='Углы, связанные с окружностью.', callback_data='v3')
         keyboard.add(ke_yes)
+
         ke_yes = types.InlineKeyboardButton(text='Метрические соотношения в окружности.', callback_data='b3')
         keyboard.add(ke_yes)
         ke_yes = types.InlineKeyboardButton(text='Векторы и координаты на плоскости.', callback_data='n3')
@@ -476,8 +490,21 @@ def callback_worker(call):
         question = 'Выберите задание'
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
 
+    if call.data == "dat":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Досрочный период', callback_data='dat1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Основной период', callback_data='dat2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Дополнительный период',
+                                           callback_data='dat3')
+        keyboard.add(key_o)
+        question = 'Выберите период'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+
     if call.data == "u":
-        audio = open('C:/Users/Andrey/Desktop/AB-.mp3', 'rb')
+        audio = open(choice(musics), 'rb')
         bot.send_audio(call.from_user.id, audio)
         audio.close()
 
@@ -545,6 +572,7 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/PiXEMV0')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/DjH34TG')
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/YDeb0hR')
+
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/eQhhInA')
     if call.data == "t1":
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/lTJ5fzq')
@@ -648,8 +676,34 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
 
     if call.data == "q2":
-        bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
-    if call.data == "k2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/x81E5hS')
+    if call.data == "w2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/ElPdZqd')
+    if call.data == "e2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/a0jzuXP')
+    if call.data == "r2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/PSZhnU7')
+    if call.data == "t2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/H85FFOm')
+    if call.data == "y2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/2dZH1OQ')
+    if call.data == "u2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/TJwmTv4')
+    if call.data == "i2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/HzD7ALt')
+    if call.data == "p2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/cwWQYhy')
+    if call.data == "a2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/xQbudY2')
+    if call.data == "s2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/POmCrVp')
+    if call.data == "d2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/nmULMWG')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/NzgCTy9')
+    if call.data == "f2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/a/nmULMWG')
+
+    if call.data == "g2":
         bot.send_message(call.message.chat.id, 'https://inf-oge.sdamgia.ru/')
 
     if call.data == "q3":
@@ -971,9 +1025,424 @@ def callback_worker(call):
         bot.send_photo(call.message.chat.id, 'https://imgur.com/a/kbJVySr')
     if call.data == "mu6":
         bot.send_message(call.message.chat.id, 'https://geo-oge.sdamgia.ru/')
-    if call.data == "dat":
+    if call.data == "g1":
+        bot.send_message(call.message.chat.id, 'https://rus-oge.sdamgia.ru/')
+    if call.data == "lit":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Древнерусская литература и литература XVIII века',
+                                             callback_data='lit1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Русская литература первой половины XIX века', callback_data='lit2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Литература второй половины XIX века',
+                                           callback_data='lit3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Литература XX в. – начала XXI века',
+                                           callback_data='lit4')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='lit5')
+        keyboard.add(key_o)
+        question = 'Выберите тему'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "lit1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/eFOWhle')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/vwnSH5P')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/WHxWC0I')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/TuIs7eG')
+    if call.data == "lit2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/7Uk3Bt2')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/Jx4Mt9R')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/dG7GWSJ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/qvjvvxK')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/z4LyaZ0')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/daMkeGa')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/LCw0Zj0')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/A7xJdsq')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/QwituH0')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/HcalCx9')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/nxq2V5I')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/54tpCcK')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/vW1wi8x')
+    if call.data == "lit3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/X3c2CLb')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/XXdVTvb')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/xtVBuJl')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/6DzLB7l')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/LFmErah')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/KwYdnKQ')
+    if call.data == "lit4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/b0kkAjd')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/0Gcx50w')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/mPoVTHA')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/uhW4axq')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/u3GE2qb')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/ay0D9dF')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/rVHZBlA')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/xvNzWqU')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/t4K6QqP')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/sw4T4w0')
+    if call.data == "lit5":
+        bot.send_message(call.message.chat.id, 'https://lit-oge.sdamgia.ru/')
+    if call.data == "hist":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='История России с древнейших времён до начала XVI в. История Древнего '
+                                                  'мира. История Средних веков', callback_data='hist1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='История России в 1505 – 1682 гг. История зарубежных стран в новое '
+                                                 'время (XVI – XVII вв.)', callback_data='hist2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text=' История России с 1682 до 1801 г. История зарубежных стран в новое'
+                                                ' время (XVIII в.)', callback_data='hist3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='История России с 1801 по 1914 г. Новая история зарубежных стран в '
+                                                'XIX – начале XX в.', callback_data='hist4')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Всеобщая история с древнейших времен до 1914 г.',
+                                           callback_data='hist5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='hist6')
+        keyboard.add(key_o)
+        question = 'Выберите тему'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "hist1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/YhXno4I')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/En8FgB1')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/8iq7lgu')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/bXHlQx4')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/jg4oIRb')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/1EYHIZh')
+    if call.data == "hist2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/8dS52df')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/ib4PdHx')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/xz5ooSa')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/Gj9ridL')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/AnL2Yw1')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/VjghFSp')
+    if call.data == "hist3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/VyOqXP7')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/eu0eroj')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/eoiI6Pu')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/iYGOY8v')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/2Ok5uKs')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/DRcZRxK')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/YaQfTGQ')
+    if call.data == "hist4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/iitid6N')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/QN7Bqe4')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/LPeuFde')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/YflmGVG')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/Q8d49G2')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/qXBXNW7')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/l1vxawj')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/fVPbhQW')
+    if call.data == "hist5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/sbEuXBn')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/dqKwkkp')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/bYLf0n1')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/rQzrIvx')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/9cYam6n')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/XsyTrvq')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/SwZMZjo')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/cUPS0fJ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/RMftbUp')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/G9O6Dbx')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/oEdsbak')
+    if call.data == "hist6":
+        bot.send_message(call.message.chat.id, 'https://hist-oge.sdamgia.ru/')
+    if call.data == "lang":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Французский', callback_data='fr')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Английский', callback_data='en')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Немецкий',
+                                           callback_data='deu')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Испанский',
+                                           callback_data='sp')
+        keyboard.add(key_o)
+        question = 'Выберите язык'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "fr":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Аудирование', callback_data='fr1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Чтение', callback_data='fr2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Лекс-грамм',
+                                           callback_data='fr3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Письмо',
+                                           callback_data='fr4')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Говорение',
+                                           callback_data='fr5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='fr6')
+        keyboard.add(key_o)
+        question = 'Выберите тему'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "fr1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/JGAqAqm')
+    if call.data == "fr2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/47YItW0')
+    if call.data == "fr3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/iGiktGa')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/ghPkt8T')
+    if call.data == "fr4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/FLNtGR2')
+    if call.data == "fr5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/NGWi6XO')
+    if call.data == "fr6":
+        bot.send_message(call.message.chat.id, 'https://fr-oge.sdamgia.ru/')
+    if call.data == "en":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Аудирование', callback_data='en1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Чтение', callback_data='en2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Лекс-грамм',
+                                           callback_data='en3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Письмо',
+                                           callback_data='en4')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Говорение',
+                                           callback_data='en5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='en6')
+        keyboard.add(key_o)
+        question = 'Выберите тему'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "en1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/YWC2YGA')
+    if call.data == "en2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/DzIhY4l')
+    if call.data == "en3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/BmsjALe')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/2SYROAj')
+    if call.data == "en4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/Sbx1r6S')
+    if call.data == "en5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/tWYuqO0')
+    if call.data == "en6":
+        bot.send_message(call.message.chat.id, 'https://en-oge.sdamgia.ru/')
+    if call.data == "deu":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Аудирование', callback_data='deu1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Чтение', callback_data='deu2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Лекс-грамм',
+                                           callback_data='deu3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Письмо',
+                                           callback_data='deu4')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Говорение',
+                                           callback_data='deu5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='deu6')
+        keyboard.add(key_o)
+        question = 'Выберите тему'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "deu1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/XDtx2OP')
+    if call.data == "deu2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/XtO57jG')
+    if call.data == "deu3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/amxmX58')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/UOG4sH6')
+    if call.data == "deu4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/lQH0Hfd')
+    if call.data == "deu5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/knLLAAa')
+    if call.data == "deu6":
+        bot.send_message(call.message.chat.id, 'https://de-oge.sdamgia.ru/')
+    if call.data == "sp":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Аудирование', callback_data='sp1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Чтение', callback_data='sp2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Лекс-грамм',
+                                           callback_data='sp3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Письмо',
+                                           callback_data='sp4')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Говорение',
+                                           callback_data='sp5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='sp6')
+        keyboard.add(key_o)
+        question = 'Выберите тему'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "sp1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/DaQUFcw')
+    if call.data == "sp2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/mrSRs2z')
+    if call.data == "sp3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/pS28Sxd')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/7QdnCG0')
+    if call.data == "sp4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/0H7cLu4')
+    if call.data == "sp5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/wn4iXdR')
+    if call.data == "sp6":
+        bot.send_message(call.message.chat.id, 'https://sp-oge.sdamgia.ru/')
+    if call.data == "bio":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Биология как наука. Методы биологии', callback_data='bio1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Среда обитания. Природные и искусственные сообщества',
+                                            callback_data='bio2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Эволюционное развитие растений, животных и человека',
+                                           callback_data='bio3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Организмы бактерий, грибов и лишайников',
+                                           callback_data='bio4')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Растительный организм. Систематические группы растений',
+                                           callback_data='bio5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Животный организм. Систематические группы животных',
+                                           callback_data='bio6')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Человек и его здоровье',
+                                           callback_data='bio7')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='bio8')
+        keyboard.add(key_o)
+        question = 'Выберите тему'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "bio1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/SSMjeoJ')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/pZj0gWn')
+    if call.data == "bio2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/RTwlzEd')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/Gonncba')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/O7TCA4R')
+    if call.data == "bio3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/2VDRxZn')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/UHgWoWk')
+    if call.data == "bio4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/UVPPeW1')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/N27ZzI8')
+    if call.data == "bio5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/oHn1d9v')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/UymO0j1')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/VHnw2UP')
+    if call.data == "bio6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/mRyLX0K')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/q8ZCl6e')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/UtNGLTp')
+    if call.data == "bio7":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/71bBzOD')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/lNrizW6')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/L2nDRRv')
+    if call.data == "bio8":
+        bot.send_message(call.message.chat.id, 'https://bio-oge.sdamgia.ru/')
+    if call.data == "obch":
+        keyboard = types.InlineKeyboardMarkup()
+        key_yes = types.InlineKeyboardButton(text='Человек и его социальное окружение', callback_data='obch1')
+        keyboard.add(key_yes)
+
+        ke_yes = types.InlineKeyboardButton(text='Общество, в котором мы живем',
+                                            callback_data='obch2')
+        keyboard.add(ke_yes)
+        key_o = types.InlineKeyboardButton(text='Человек в мире культуры',
+                                           callback_data='obch3')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Человек в экономических отношениях',
+                                           callback_data='obch4')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Человек в системе социальных отношений',
+                                           callback_data='obch5')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Человек в политическом измерении',
+                                           callback_data='obch6')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Гражданин и государство',
+                                           callback_data='obch7')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Человек как участник правовых отношений',
+                                           callback_data='obch8')
+        keyboard.add(key_o)
+        key_o = types.InlineKeyboardButton(text='Практика',
+                                           callback_data='obch9')
+        keyboard.add(key_o)
+        question = 'Выберите тему'
+        bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
+    if call.data == "obch1":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/fnn7zV7')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/eIoV2n3')
+    if call.data == "obch2":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/n0Lre4i')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/raOGiXk')
+    if call.data == "obch3":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/drk0IiV')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/ztOHAgs')
+    if call.data == "obch4":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/6jMmP2K')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/63WZq3p')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/G9YlYh5')
+    if call.data == "obch5":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/iQXSkNU')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/5a0tTtA')
+    if call.data == "obch6":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/NjKg14E')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/kndElzb')
+    if call.data == "obch7":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/cSXmTUx')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/zvipP8g')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/cqGIQeG')
+    if call.data == "obch8":
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/5EVlxib')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/zrxwF85')
+        bot.send_photo(call.message.chat.id, 'https://imgur.com/6poFI8H')
+    if call.data == "obch9":
+        bot.send_message(call.message.chat.id, 'https://soc-oge.sdamgia.ru/')
+    if call.data == "dat1":
         bot.send_message(call.message.chat.id,
-                         '(｡•́︿•̀｡)  21 мая (среда) — иностранные языки (английский,'
+                         'Досрочный период\n'
+                         '\n'
+                         '(｡•́︿•̀｡) 22 апреля (вторник) — математика;\n'
+                         '(╥﹏╥) 25 апреля (пятница) — русский язык;\n'
+                         '(ಠ ∩ಠ) 29 апреля (вторник) — информатика, литература, обществознание, химия;\n'
+                         '(｀Д´) 6 мая (вторник) — биология, география, иностранные языки (английский, испанский, '
+                         'немецкий, французский), история, физика.\n'
+                         '\n'
+                         '\n'
+                         'Резервные дни\n'
+                         '\n'
+                         '⋋_⋌12 мая (понедельник) — математика;\n'
+                         '(╬ಠ益ಠ) 13 мая (вторник) — информатика, литература, обществознание, химия;\n'
+                         '(ಥ﹏ಥ) 14 мая (среда) — биология, география, иностранные языки (английский, испанский, '
+                         'немецкий, французский), история, физика;\n'
+                         '(=ↀωↀ=) 15 мая (четверг) — русский язык;\n'
+                         '༼ つ ◕_◕ ༽つ 17 мая (суббота) — по всем учебным предметам;\n')
+    if call.data == "dat2":
+        bot.send_message(call.message.chat.id,
+                         'Основной период\n'
+                         '\n'
+                         '(｡•́︿•̀｡)  21 мая (среда) — иностранные языки (английский,\n'
                          ' испанский, немецкий, французский);\n'
                          '(╥﹏╥)  22 мая (четверг) — иностранные языки (английский, испанский, немецкий, французский);\n'
                          '(ಠ ∩ಠ)  26 мая (понедельник) — биология, информатика, обществознание, химия;\n'
@@ -981,7 +1450,37 @@ def callback_worker(call):
                          '⋋_⋌  3 июня (вторник) — математика;\n'
                          '(╬ಠ益ಠ)  6 июня (пятница) — география, информатика, обществознание;\n'
                          '(ಥ﹏ಥ)  9 июня (понедельник) — русский язык;\n'
-                         '(=ↀωↀ=)  16 июня (понедельник) — биология, информатика, литература, физика.\n')
+                         '(=ↀωↀ=)  16 июня (понедельник) — биология, информатика, литература, физика.\n'
+                         '\n'
+                         '\n'
+                         'Резервные дни\n'
+                         '\n'
+                         '(ꀄꀾꀄ) 26 июня(четверг) — русский язык;\n'
+                         'ि०॰०ॢी 27 июня(пятница) — по всем учебным предметам(кроме русского языка и математики);\n'
+                         '(ㅇㅅㅇ❀) 28 июня(суббота) — по всем учебным предметам(кроме русского языка и математики);\n'
+                         'ฅ•ω•ฅ 30 июня(понедельник) — математика;\n'
+                         '(๑˃ᴗ˂) ﻭ 1 июля(вторник) — по всем учебным предметам;\n'
+                         'ㅇㅅㅇ 2 июля(среда) — по всем учебным предметам\n')
+    if call.data == "dat3":
+        bot.send_message(call.message.chat.id,
+                         'Дополнительный период\n'
+                         '\n'
+                         '༼ꉺ౪ꉺ༽ 2 сентября (вторник) — математика;\n'
+                         '༼ : ౦ ‸ ౦ : ༽ 5 сентября (пятница) — русский язык;\n'
+                         '(ಥ﹏ಥ) 9 сентября (вторник) — биология, география, история, физика;\n'
+                         '(ノ￣ー￣)ノ 12 сентября (пятница) — иностранные языки (английский, испанский, немецкий, '
+                         'французский), информатика, литература, обществознание, химия.\n'
+                         '\n'
+                         '\n'
+                         'Резервные дни\n'
+                         '\n'
+                         '༼⁰o⁰；༽ 17 сентября (среда) — русский язык;\n'
+                         '(„ಡωಡ„) 18 сентября (четверг) — математика;\n'
+                         '(´｡• ω •｡`)♡ 19 сентября (пятница) — по всем учебным предметам (кроме русского языка и '
+                         'математики);\n'
+                         '(♡-_-♡) 22 сентября (понедельник) — по всем учебным предметам (кроме русского языка и '
+                         'математики);\n'
+                         '(♡μ_μ) 23 сентября (вторник) — по всем учебным предметам.\n')
 
 
 bot.polling(none_stop=True, interval=0)
