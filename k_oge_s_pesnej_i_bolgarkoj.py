@@ -504,9 +504,10 @@ def callback_worker(call):
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
 
     if call.data == "u":
-        audio = open(choice(musics), 'rb')
+        audio = open('C:/Users/Andrey/Desktop/AB-.mp3', 'rb')
         bot.send_audio(call.from_user.id, audio)
         audio.close()
+        bot.send_message(call.message.chat.id, 'https://disk.yandex.ru/d/SkNedXrjj4qavw')
 
     if call.data == "q1":
         con = sqlite3.connect('1.sqlite')
@@ -1087,8 +1088,9 @@ def callback_worker(call):
         bot.send_message(call.message.chat.id, 'https://lit-oge.sdamgia.ru/')
     if call.data == "hist":
         keyboard = types.InlineKeyboardMarkup()
-        key_yes = types.InlineKeyboardButton(text='История России с древнейших времён до начала XVI в. История Древнего '
-                                                  'мира. История Средних веков', callback_data='hist1')
+        key_yes = types.InlineKeyboardButton(
+            text='История России с древнейших времён до начала XVI в. История Древнего '
+                 'мира. История Средних веков', callback_data='hist1')
         keyboard.add(key_yes)
 
         ke_yes = types.InlineKeyboardButton(text='История России в 1505 – 1682 гг. История зарубежных стран в новое '
