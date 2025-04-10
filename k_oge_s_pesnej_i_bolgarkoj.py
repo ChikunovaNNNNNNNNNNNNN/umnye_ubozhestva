@@ -8,8 +8,9 @@ bot = telebot.TeleBot('7654642510:AAEU9dj-4OT4CgIlTbPrhp6aahxRvZygtXc')
 name = ''
 surname = ''
 age = 0
-musics = ['AB-.mp3', 'Ophelia - The Lumineers', 'Riptide - Vance Joy', 'Stolen Dance - Milky Chance',
-          "There's Nothing Holdin' Me Back - Shawn Mendes", 'Build Our Machine (Bendy and Ink Machine)']
+musics = ['https://disk.yandex.ru/d/SkNedXrjj4qavw', 'https://disk.yandex.ru/d/z20F7V8NXMWsNg',
+          'https://disk.yandex.ru/d/v_WQO_uBPgTQeQ', 'https://disk.yandex.ru/d/Jj64r11TGPJOtg',
+          "https://disk.yandex.ru/d/9Mg-D4cmRUxz1w", 'https://disk.yandex.ru/d/9zIeRCPoz9J2kw']
 
 
 @bot.message_handler(content_types=['text'])
@@ -504,10 +505,7 @@ def callback_worker(call):
         bot.send_message(call.from_user.id, text=question, reply_markup=keyboard)
 
     if call.data == "u":
-        audio = open('C:/Users/Andrey/Desktop/AB-.mp3', 'rb')
-        bot.send_audio(call.from_user.id, audio)
-        audio.close()
-        bot.send_message(call.message.chat.id, 'https://disk.yandex.ru/d/SkNedXrjj4qavw')
+        bot.send_message(call.message.chat.id, choice(musics))
 
     if call.data == "q1":
         con = sqlite3.connect('1.sqlite')
